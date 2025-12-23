@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Worksheet 150+</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- WRAPPER UTAMA (Math Grid Theme) --- */
+        .lynk-wrapper {
+            font-family: 'Nunito', sans-serif; 
+            background-color: #FEF9C3; /* Kuning Muda */
+            color: #374151;
+            width: 100%;
+            position: relative;
+            overflow-x: hidden;
+            padding-bottom: 60px;
+            
+            /* Pattern Kertas Matematika (Grid Biru Tipis) */
+            background-image: 
+                linear-gradient(#E5E7EB 1px, transparent 1px),
+                linear-gradient(90deg, #E5E7EB 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, .font-pop {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* --- DEKORASI GEOMETRI (CSS Shapes) --- */
+        .geo-shape {
+            position: absolute; opacity: 0.6; z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+        .circle { width: 80px; height: 80px; border-radius: 50%; background: #FCD34D; top: -20px; left: -20px; }
+        .triangle { 
+            width: 0; height: 0; 
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 50px solid #F87171;
+            top: 100px; right: -20px; transform: rotate(15deg);
+        }
+        .square { width: 40px; height: 40px; background: #60A5FA; top: 300px; left: 10px; transform: rotate(-10deg); }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        /* --- NEW ANIMATION: JELLY POP (Kenyal) --- */
+        .jelly-item {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s ease;
+        }
+        
+        .jelly-item.active {
+            opacity: 1;
+            animation: jelly 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes jelly {
+            0% { transform: scale(0.8); }
+            50% { transform: scale(1.05); } /* Overshoot (Membesar dikit) */
+            70% { transform: scale(0.95); } /* Undershoot (Mengecil dikit) */
+            100% { transform: scale(1); } /* Normal */
+        }
+
+        /* --- HERO: 3D BOOK EFFECT --- */
+        .book-container {
+            position: relative;
+            width: 220px; height: 280px;
+            margin: 30px auto;
+            perspective: 1000px;
+        }
+        .book-cover {
+            width: 100%; height: 100%;
+            background: #fff;
+            border-radius: 4px 12px 12px 4px;
+            box-shadow: 
+                inset 10px 0 20px rgba(0,0,0,0.1), /* Lipatan buku */
+                5px 10px 15px rgba(0,0,0,0.15);
+            border: 2px solid #fff;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+        .book-cover img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Efek Halaman Tebal di Samping */
+        .book-pages {
+            position: absolute;
+            top: 2px; right: -12px;
+            width: 20px; height: 98%;
+            background: repeating-linear-gradient(90deg, #fff 0px, #eee 1px, #fff 2px);
+            border: 1px solid #ddd;
+            border-radius: 0 4px 4px 0;
+            transform: skewY(-2deg);
+            z-index: 1;
+        }
+
+        /* Badge 150+ */
+        .star-badge {
+            position: absolute; top: -15px; right: -25px;
+            background: #EF4444; color: white;
+            width: 70px; height: 70px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 16px;
+            z-index: 10;
+            animation: spin-slow 10s linear infinite;
+        }
+        @keyframes spin-slow { 100% { transform: rotate(360deg); } }
+
+        /* --- CONTENT CARDS (Puzzle Style) --- */
+        .puzzle-card {
+            background: white;
+            border: 3px solid;
+            border-radius: 16px;
+            padding: 15px;
+            position: relative;
+            margin-bottom: 20px;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        }
+        .pc-blue { border-color: #3B82F6; }
+        .pc-green { border-color: #10B981; }
+        
+        .card-title {
+            position: absolute; top: -12px; left: 15px;
+            padding: 2px 12px; border-radius: 20px;
+            color: white; font-weight: bold; font-size: 11px;
+            font-family: 'Fredoka', sans-serif;
+        }
+        .bg-blue { background: #3B82F6; }
+        .bg-green { background: #10B981; }
+
+        /* --- MRR COIN --- */
+        .mrr-circle {
+            width: 100%; padding: 20px;
+            background: #FFFBEB;
+            border: 3px dashed #F59E0B;
+            border-radius: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lynk-wrapper">
+        <div class="geo-shape circle"></div>
+        <div class="geo-shape triangle"></div>
+        <div class="geo-shape square"></div>
+
+        <div class="w-full flex justify-center py-6 relative z-10">
+            <div class="jelly-item bg-white px-5 py-2 rounded-full border-2 border-slate-800 shadow-md">
+                <span class="text-xs font-extrabold tracking-widest text-slate-800 font-pop">🧮 MATH SERIES</span>
+            </div>
+        </div>
+
+        <section class="w-full px-6 pb-6 relative z-10 text-center">
+            <div class="w-full max-w-lg mx-auto">
+                
+                <h1 class="jelly-item text-4xl font-pop font-bold text-slate-800 leading-none mb-1">
+                    Jago Berhitung <br> <span class="text-blue-500">Sejak Dini!</span>
+                </h1>
+                
+                <div class="jelly-item flex justify-center items-center gap-2 mb-2 mt-2">
+                    <span class="text-slate-400 line-through text-xs font-bold">Rp 39.000</span>
+                    <span class="text-lg font-bold text-white bg-red-500 px-3 py-0.5 rounded-lg shadow-sm font-pop transform rotate-2">Rp 15.000</span>
+                </div>
+
+                <div class="jelly-item book-container">
+                    <div class="star-badge">150+</div>
+                    <div class="book-pages"></div>
+                    <div class="book-cover">
+                        <img src="https://cdn.lynkid.my.id/draft-products/23-12-2025/1766472980647_2984824.png" alt="Cover">
+                    </div>
+                </div>
+
+                <p class="jelly-item text-sm text-slate-600 leading-relaxed font-bold px-2">
+                    Lembar kerja matematika yang <i>fun</i> untuk usia 4-7 tahun. 
+                    <br><span class="text-xs font-normal bg-yellow-200 px-1 rounded">Prinsip Montessori</span>
+                </p>
+
+            </div>
+        </section>
+
+        <section class="w-full px-6 py-8 relative z-10">
+            <div class="max-w-lg mx-auto">
+                
+                <h3 class="jelly-item text-center text-sm font-pop font-bold text-slate-500 mb-6 uppercase tracking-wide">
+                    Isi Materi Belajar
+                </h3>
+                
+                <div class="jelly-item puzzle-card pc-blue">
+                    <div class="card-title bg-blue">Usia 4-5 Tahun</div>
+                    <ul class="text-xs font-bold text-slate-600 space-y-2 mt-2">
+                        <li class="flex items-center gap-2">✂️ <span>Menggunting & Menempel</span></li>
+                        <li class="flex items-center gap-2">📏 <span>Besar vs Kecil</span></li>
+                        <li class="flex items-center gap-2">🔢 <span>Angka 1-10 & Berhitung</span></li>
+                        <li class="flex items-center gap-2">🎨 <span>Mewarnai & Mengelompokkan</span></li>
+                    </ul>
+                </div>
+
+                <div class="jelly-item puzzle-card pc-green">
+                    <div class="card-title bg-green">Usia 6-7 Tahun</div>
+                    <ul class="text-xs font-bold text-slate-600 space-y-2 mt-2">
+                        <li class="flex items-center gap-2">📖 <span>Membaca Kalimat Pendek</span></li>
+                        <li class="flex items-center gap-2">✍️ <span>Menulis & Melengkapi Kata</span></li>
+                        <li class="flex items-center gap-2">➕ <span>Konsep Penjumlahan Lanjut</span></li>
+                        <li class="flex items-center gap-2">🧠 <span>Logika Matematika</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="w-full px-6 pb-6 relative z-10">
+            <div class="jelly-item max-w-lg mx-auto mrr-circle">
+                <span class="text-3xl block mb-1">💰</span>
+                <h3 class="text-sm font-pop font-bold text-yellow-700 mb-2 uppercase">
+                    Lisensi MRR (Cuan!)
+                </h3>
+                <p class="text-xs text-yellow-800 leading-relaxed">
+                    Beli file ini sekali, lalu <strong>JUAL KEMBALI</strong> ke orang lain. <br>
+                    Kamu dapat untung 100% tanpa bagi hasil.
+                </p>
+            </div>
+        </section>
+
+        <section class="w-full px-6 pb-8 relative z-10">
+            <div class="jelly-item max-w-lg mx-auto bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
+                <h3 class="text-xs font-bold text-slate-400 mb-3 uppercase">Tips Hemat</h3>
+                
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="bg-blue-50 p-2 rounded-lg">
+                        <div class="text-lg">🖨️</div>
+                        <p class="text-[9px] font-bold text-blue-600 mt-1">Print A4</p>
+                    </div>
+                    <div class="bg-green-50 p-2 rounded-lg">
+                        <div class="text-lg">✨</div>
+                        <p class="text-[9px] font-bold text-green-600 mt-1">Laminating</p>
+                    </div>
+                    <div class="bg-red-50 p-2 rounded-lg">
+                        <div class="text-lg">🖊️</div>
+                        <p class="text-[9px] font-bold text-red-600 mt-1">Spidol</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full px-6 py-8 flex flex-col items-center text-center relative z-10">
+            <div class="jelly-item">
+                <h2 class="text-xl font-pop font-bold mb-1 text-slate-800">Yuk, Belajar Math!</h2>
+                <p class="text-xs text-slate-500 max-w-xs mb-4">
+                    150 Halaman penuh ilmu & keseruan.
+                </p>
+                
+                <div class="animate-bounce flex flex-col items-center gap-1 opacity-90">
+                    <p class="text-[10px] font-bold text-slate-400 tracking-widest uppercase font-pop">
+                        Klik Tombol di Bawah 👇
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.jelly-item').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
